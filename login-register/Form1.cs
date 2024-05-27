@@ -3,7 +3,7 @@ using System.Data;
 
 namespace login_register
 {
-    public partial class formRegister : Form 
+    public partial class formRegister : Form
     {
         //private loginForm login;
         private NpgsqlConnection DBopen_connection()
@@ -19,38 +19,42 @@ namespace login_register
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBoxUserName.Text == "" || textBoxPassword.Text == "" || textBoxConfPassword.Text == "")
+            if (textBoxUserName.Text == "" || textBoxPassword.Text == "" || textBoxConfPassword.Text == "" || textBoxFullName.Text == "")
             {
-                MessageBox.Show("Please complete all required fienls!", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (textBoxPassword.Text == textBoxConfPassword.Text)
-            {
-                string username = textBoxUserName.Text;
-                string pass = textBoxPassword.Text;
-                NpgsqlConnection conn = this.DBopen_connection();
-                NpgsqlCommand comm = new NpgsqlCommand();
-                comm.Connection = conn;
-                comm.CommandType = CommandType.Text;
-                comm.CommandText = "insert into users (username, password) values ('" + username + "','" + pass + "')";
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                comm.Dispose();
-                conn.Close();
-
-                textBoxUserName.Text = "";
-                textBoxPassword.Text = "";
-                textBoxConfPassword.Text = "";
-
-                MessageBox.Show("Your Account has been Successfully Created", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please complete all required fields!", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Please complete all required fienls!", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBoxPassword.Text = "";
-                textBoxConfPassword.Text = "";
-                textBoxPassword.Focus();
+                if (textBoxPassword.Text == textBoxConfPassword.Text)
+                {
+                    string username = textBoxUserName.Text;
+                    string fullName = textBoxFullName.Text;
+                    string pass = textBoxPassword.Text;
+
+                    NpgsqlConnection conn = this.DBopen_connection();
+                    NpgsqlCommand comm = new NpgsqlCommand();
+                    comm.Connection = conn;
+                    comm.CommandType = CommandType.Text;
+                    comm.CommandText = "insert into users (username, password) values ('" + username + "','" + pass + "')";
+                    NpgsqlDataReader dr = comm.ExecuteReader();
+                    comm.Dispose();
+                    conn.Close();
+
+                    textBoxUserName.Text = "";
+                    textBoxPassword.Text = "";
+                    textBoxConfPassword.Text = "";
+
+                    MessageBox.Show("Your Account has been Successfully Created", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please complete all required fienls!", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxPassword.Text = "";
+                    textBoxConfPassword.Text = "";
+                    textBoxPassword.Focus();
+                }
             }
         }
-
         private void checkBoxShowPass_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxShowPass.Checked)
@@ -78,6 +82,21 @@ namespace login_register
         {
             new loginForm().Show();
             this.Hide();
+        }
+
+        private void textBoxUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
