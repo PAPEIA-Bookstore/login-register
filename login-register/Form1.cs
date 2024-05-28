@@ -6,13 +6,6 @@ namespace login_register
 {
     public partial class formRegister : Form
     {
-        //private loginForm login;
-        private static NpgsqlConnection Dbopen_Connection()
-        {
-            NpgsqlConnection conn = new NpgsqlConnection(Globals.connectionString);
-            conn.Open();
-            return conn;
-        }
         public formRegister()
         {
             InitializeComponent();
@@ -20,57 +13,72 @@ namespace login_register
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //  Ensure all fields are filled
             if (textBoxUserName.Text == "" || textBoxPassword.Text == "" || textBoxConfPassword.Text == "" || textBoxFullName.Text == "")
             {
                 MessageBox.Show("Please complete all required fields!", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             } else {
+                //  Correct username form
                 if (Regex.IsMatch(textBoxUserName.Text,Globals.usernameREGEX))
                 {
                     NpgsqlConnection connection = DBHandler.OpenConnection();
                     NpgsqlCommand command = DBHandler.GetCommand(connection);
                     command.CommandText = "SELECT FROM users WHERE (username = '" + textBoxUserName.Text + "')";
                     NpgsqlDataReader dataReader = command.ExecuteReader();
-                    if (dataReader.HasRows == false) {
 
+                    bool usernameExists = dataReader.HasRows;
+                    dataReader.Close();
+                    //  Check for username uniqueness
+                    if (!usernameExists)
+                    {
+                        //  Check that password is confirmed
                         if (textBoxPassword.Text == textBoxConfPassword.Text)
                         {
-                            string username = textBoxUserName.Text;
-                            string fullName = textBoxFullName.Text;
-                            //  Hashing
-                            string pass = textBoxPassword.Text;
-                            pass = pass + Globals.pepper;
-                            string hashedPass = BCrypt.Net.BCrypt.EnhancedHashPassword(pass, 11);
-                            bool is_author = authorCheckBox.Checked;
-                            NpgsqlConnection conn = Dbopen_Connection();
-                            NpgsqlCommand comm = new NpgsqlCommand();
-                            comm.Connection = conn;
-                            comm.CommandType = CommandType.Text;
-                            comm.CommandText = "INSERT INTO users VALUES ('" + username + "','" + fullName + "', '" + hashedPass + "', '" + is_author + "', 'https://image.png')";
-                            NpgsqlDataReader dr = comm.ExecuteReader();
-                            comm.Dispose();
-                            conn.Close();
+                            //  Check that password is strong
+                            if (Regex.IsMatch(textBoxPassword.Text, Globals.passREGEX))
+                            {
+                                string username = textBoxUserName.Text;
+                                string fullName = textBoxFullName.Text;
+                                //  Hashing
+                                string pass = textBoxPassword.Text;
+                                pass = pass + Globals.pepper;
+                                string hashedPass = BCrypt.Net.BCrypt.EnhancedHashPassword(pass, 11);
+                                bool is_author = authorCheckBox.Checked;
+                                //  Inserting to db
+                                command.CommandText = "INSERT INTO users VALUES ('" + username + "','" + fullName + "', '" + hashedPass + "', '" + is_author + "', 'https://image.png')";
+                                command.ExecuteNonQuery();
 
-                            textBoxUserName.Text = "";
-                            textBoxFullName.Text = "";
-                            textBoxPassword.Text = "";
-                            textBoxConfPassword.Text = "";
+                                textBoxUserName.Clear();
+                                textBoxFullName.Clear();
+                                textBoxPassword.Clear();
+                                textBoxConfPassword.Clear();
 
-                            MessageBox.Show("Your Account has been Successfully Created", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Your account has been successfully created!", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                DBHandler.CloseConnection(connection, command);
+                            }
+                            else
+                            {
+                                MessageBox.Show(Globals.passGuidelines, "Please choose a stronger password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
 
-                        } else {
+
+                        }
+                        else
+                        {
                             MessageBox.Show("Please confirm your password", "Passwords Don't Match", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            textBoxPassword.Clear();    
+                            textBoxPassword.Clear();
                             textBoxConfPassword.Clear();
                             textBoxPassword.Focus();
                         }
 
-                    } else {
+                    }
+                    else
+                    {
                         MessageBox.Show("Please choose a different username", "Username Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBoxUserName.Clear();
                         textBoxUserName.Focus();
                     }
-                    dataReader.Close();
 
                 } else {
                     MessageBox.Show(Globals.usernameGuidelines, "Incorect Username", MessageBoxButtons.OK,MessageBoxIcon.Error);
