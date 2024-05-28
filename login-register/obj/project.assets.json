@@ -236,24 +236,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mtimo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\theod\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mtimo\\Source\\Repos\\login-register\\login-register\\login-register.csproj",
+      "projectUniqueName": "C:\\Users\\theod\\Source\\Repos\\login-register\\login-register\\login-register.csproj",
       "projectName": "login-register",
-      "projectPath": "C:\\Users\\mtimo\\Source\\Repos\\login-register\\login-register\\login-register.csproj",
-      "packagesPath": "C:\\Users\\mtimo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mtimo\\Source\\Repos\\login-register\\login-register\\obj\\",
+      "projectPath": "C:\\Users\\theod\\Source\\Repos\\login-register\\login-register\\login-register.csproj",
+      "packagesPath": "C:\\Users\\theod\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\theod\\Source\\Repos\\login-register\\login-register\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\mtimo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\theod\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -261,7 +256,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

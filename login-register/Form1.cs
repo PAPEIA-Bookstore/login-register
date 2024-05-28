@@ -1,14 +1,15 @@
 using Npgsql;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace login_register
 {
     public partial class formRegister : Form
     {
         //private loginForm login;
-        private NpgsqlConnection DBopen_connection()
+        private static NpgsqlConnection Dbopen_Connection()
         {
-            NpgsqlConnection conn = new NpgsqlConnection("Host=dpg-cp3nb4021fec73bb1ib0-a.frankfurt-postgres.render.com;Port=5432;Database=korribandb;Username=korr_user;Password=1N2F6ODSpntuDaspz4a4oDJ3A0vGMoMK;Trust Server Certificate=true;");
+            NpgsqlConnection conn = new NpgsqlConnection(Globals.connectionString);
             conn.Open();
             return conn;
         }
@@ -22,37 +23,61 @@ namespace login_register
             if (textBoxUserName.Text == "" || textBoxPassword.Text == "" || textBoxConfPassword.Text == "" || textBoxFullName.Text == "")
             {
                 MessageBox.Show("Please complete all required fields!", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (textBoxPassword.Text == textBoxConfPassword.Text)
+
+            } else {
+                if (Regex.IsMatch(textBoxUserName.Text,Globals.usernameREGEX))
                 {
-                    string username = textBoxUserName.Text;
-                    string fullName = textBoxFullName.Text;
-                    string pass = textBoxPassword.Text;
+                    NpgsqlConnection connection = DBHandler.OpenConnection();
+                    NpgsqlCommand command = DBHandler.GetCommand(connection);
+                    command.CommandText = "SELECT FROM users WHERE (username = '" + textBoxUserName.Text + "')";
+                    NpgsqlDataReader dataReader = command.ExecuteReader();
+                    if (dataReader.HasRows == false) {
 
-                    NpgsqlConnection conn = this.DBopen_connection();
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    comm.Connection = conn;
-                    comm.CommandType = CommandType.Text;
-                    comm.CommandText = "insert into users (username, password) values ('" + username + "','" + pass + "')";
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    comm.Dispose();
-                    conn.Close();
+                        if (textBoxPassword.Text == textBoxConfPassword.Text)
+                        {
+                            string username = textBoxUserName.Text;
+                            string fullName = textBoxFullName.Text;
+                            //  Hashing
+                            string pass = textBoxPassword.Text;
+                            pass = pass + Globals.pepper;
+                            string hashedPass = BCrypt.Net.BCrypt.EnhancedHashPassword(pass, 11);
+                            bool is_author = authorCheckBox.Checked;
+                            NpgsqlConnection conn = Dbopen_Connection();
+                            NpgsqlCommand comm = new NpgsqlCommand();
+                            comm.Connection = conn;
+                            comm.CommandType = CommandType.Text;
+                            comm.CommandText = "INSERT INTO users VALUES ('" + username + "','" + fullName + "', '" + hashedPass + "', '" + is_author + "', 'https://image.png')";
+                            NpgsqlDataReader dr = comm.ExecuteReader();
+                            comm.Dispose();
+                            conn.Close();
 
-                    textBoxUserName.Text = "";
-                    textBoxPassword.Text = "";
-                    textBoxConfPassword.Text = "";
+                            textBoxUserName.Text = "";
+                            textBoxFullName.Text = "";
+                            textBoxPassword.Text = "";
+                            textBoxConfPassword.Text = "";
 
-                    MessageBox.Show("Your Account has been Successfully Created", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Your Account has been Successfully Created", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        } else {
+                            MessageBox.Show("Please confirm your password", "Passwords Don't Match", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            textBoxPassword.Clear();    
+                            textBoxConfPassword.Clear();
+                            textBoxPassword.Focus();
+                        }
+
+                    } else {
+                        MessageBox.Show("Please choose a different username", "Username Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBoxUserName.Clear();
+                        textBoxUserName.Focus();
+                    }
+                    dataReader.Close();
+
+                } else {
+                    MessageBox.Show(Globals.usernameGuidelines, "Incorect Username", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    textBoxUserName.Clear();
+                    textBoxUserName.Focus();
                 }
-                else
-                {
-                    MessageBox.Show("Please complete all required fienls!", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    textBoxPassword.Text = "";
-                    textBoxConfPassword.Text = "";
-                    textBoxPassword.Focus();
-                }
+                
             }
         }
         private void checkBoxShowPass_CheckedChanged(object sender, EventArgs e)
@@ -95,6 +120,11 @@ namespace login_register
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

@@ -158,6 +158,7 @@
             label1.Size = new Size(155, 27);
             label1.TabIndex = 12;
             label1.Text = "Get Started";
+            label1.Click += label1_Click;
             // 
             // button1
             // 
