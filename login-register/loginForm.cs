@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace login_register
 {
@@ -31,44 +32,58 @@ namespace login_register
 
         private void buttonLOGIN_Click(object sender, EventArgs e)
         {
-            if (textBoxUserName.Text == "" || textBoxPassword.Text == "")
+            if (string.IsNullOrWhiteSpace(textBoxUserName.Text) || string.IsNullOrWhiteSpace(textBoxPassword.Text))
             {
                 MessageBox.Show("Please complete all required fields!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             else
             {
-                string username = textBoxUserName.Text;
-                string pass = textBoxPassword.Text;
-                NpgsqlConnection conn = this.DBopen_connection();
-                NpgsqlCommand comm = new NpgsqlCommand();
-                comm.Connection = conn;
-                comm.CommandType = CommandType.Text;
-                comm.CommandText = "select username from users where username='" + username + "'and password='" + pass + "'";
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    MessageBox.Show("Welcome " + username + " !", "Login Successfull!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (System.Windows.Forms.Application.MessageLoop)
-                    {
-                        // WinForms app
-                        System.Windows.Forms.Application.Exit();
-                    }
-                    else
-                    {
-                        // Console app
-                        System.Environment.Exit(1);
-                    }
-                }
-                comm.Dispose();
-                conn.Close();
+                NpgsqlConnection connection = DBHandler.OpenConnection();
+                NpgsqlCommand command = DBHandler.GetCommand(connection);
+                command.CommandText = "SELECT username, pass FROM users WHERE (username = '" + textBoxUserName.Text + "');";
+                NpgsqlDataReader dataReader = command.ExecuteReader();
 
+                if (dataReader.HasRows)
+                {
+                    //Verify password
+                    string pass = textBoxPassword.Text;
+                    pass = pass + GLOBALS.pepper;
+                    string dbPass = "";
+                    if (dataReader.Read())
+                    {
+                        dbPass = dataReader.GetString(1);
+                    }
+                    bool isMatch = BCrypt.Net.BCrypt.EnhancedVerify(pass, dbPass);
+                    if (isMatch)
+                    {
+                        MessageBox.Show("Welcome " + textBoxUserName.Text + "!", "Login Successfull!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (System.Windows.Forms.Application.MessageLoop)
+                        {
+                            // WinForms app
+                            System.Windows.Forms.Application.Exit();
+                        }
+                        else
+                        {
+                            // Console app
+                            System.Environment.Exit(1);
+                        }
+                    } else {
+                        MessageBox.Show("Please fill in the correct password", "Wrong Password!", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        textBoxPassword.Clear();
+                        textBoxPassword.Focus();
+                    }
+                    
+                } else {
+                    MessageBox.Show("Would you like to register?", "This username does not exist", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                DBHandler.CloseConnection(connection,command);
             }
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            new formRegister().Show();
+            new FormRegister().Show();
             this.Hide();
         }
 
