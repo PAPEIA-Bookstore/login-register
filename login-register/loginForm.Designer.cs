@@ -39,6 +39,8 @@
             label2 = new Label();
             label1 = new Label();
             button1 = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label6
@@ -170,12 +172,22 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(209, 72);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(50, 50);
+            pictureBox1.TabIndex = 25;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // loginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(303, 512);
+            Controls.Add(pictureBox1);
             Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -194,6 +206,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LOGIN";
             Load += loginForm_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -211,5 +224,6 @@
         private Label label2;
         private Label label1;
         private Button button1;
+        private PictureBox pictureBox1;
     }
 }

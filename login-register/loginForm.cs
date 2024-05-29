@@ -41,7 +41,7 @@ namespace login_register
             {
                 NpgsqlConnection connection = DBHandler.OpenConnection();
                 NpgsqlCommand command = DBHandler.GetCommand(connection);
-                command.CommandText = "SELECT username, pass FROM users WHERE (username = '" + textBoxUserName.Text + "');";
+                command.CommandText = "SELECT * FROM users WHERE (username = '" + textBoxUserName.Text + "');";
                 NpgsqlDataReader dataReader = command.ExecuteReader();
 
                 if (dataReader.HasRows)
@@ -50,13 +50,18 @@ namespace login_register
                     string pass = textBoxPassword.Text;
                     pass = pass + GLOBALS.pepper;
                     string dbPass = "";
+                    string prof_pic = "";
                     if (dataReader.Read())
                     {
-                        dbPass = dataReader.GetString(1);
+                        dbPass = dataReader.GetString(2);
+                        prof_pic = dataReader.GetString(4);
                     }
                     bool isMatch = BCrypt.Net.BCrypt.EnhancedVerify(pass, dbPass);
                     if (isMatch)
                     {
+                        pictureBox1.Load(prof_pic);
+                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                        
                         MessageBox.Show("Welcome " + textBoxUserName.Text + "!", "Login Successfull!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         if (System.Windows.Forms.Application.MessageLoop)
                         {
@@ -68,16 +73,20 @@ namespace login_register
                             // Console app
                             System.Environment.Exit(1);
                         }
-                    } else {
-                        MessageBox.Show("Please fill in the correct password", "Wrong Password!", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please fill in the correct password", "Wrong Password!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBoxPassword.Clear();
                         textBoxPassword.Focus();
                     }
-                    
-                } else {
-                    MessageBox.Show("Would you like to register?", "This username does not exist", MessageBoxButtons.OK,MessageBoxIcon.Error);
+
                 }
-                DBHandler.CloseConnection(connection,command);
+                else
+                {
+                    MessageBox.Show("Would you like to register?", "This username does not exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                DBHandler.CloseConnection(connection, command);
             }
         }
 
@@ -108,6 +117,11 @@ namespace login_register
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

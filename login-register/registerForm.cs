@@ -44,8 +44,10 @@ namespace login_register
                                 pass = pass + GLOBALS.pepper;
                                 string hashedPass = BCrypt.Net.BCrypt.EnhancedHashPassword(pass, 11);
                                 bool is_author = authorCheckBox.Checked;
+                                //  Giving the user a random pfp
+                                string prof_pic = GLOBALS.profImages[Random.Shared.Next(0, GLOBALS.profImages.Length)];
                                 //  Inserting to db
-                                command.CommandText = "INSERT INTO users VALUES ('" + username + "','" + fullName + "', '" + hashedPass + "', '" + is_author + "', 'https://image.png')";
+                                command.CommandText = "INSERT INTO users VALUES ('" + username + "','" + fullName + "', '" + hashedPass + "', '" + is_author + "', '" + prof_pic + "')";
                                 command.ExecuteNonQuery();
 
                                 textBoxUserName.Clear();
