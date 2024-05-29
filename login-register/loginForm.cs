@@ -55,30 +55,35 @@ namespace login_register
                     {
                         dbPass = dataReader.GetString(2);
                         prof_pic = dataReader.GetString(4);
-                    }
-                    bool isMatch = BCrypt.Net.BCrypt.EnhancedVerify(pass, dbPass);
-                    if (isMatch)
-                    {
-                        pictureBox1.Load(prof_pic);
-                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                        
-                        MessageBox.Show("Welcome " + textBoxUserName.Text + "!", "Login Successfull!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (System.Windows.Forms.Application.MessageLoop)
+
+                        bool isMatch = BCrypt.Net.BCrypt.EnhancedVerify(pass, dbPass);
+                        if (isMatch)
                         {
-                            // WinForms app
-                            System.Windows.Forms.Application.Exit();
+                            pictureBox1.Load(prof_pic);
+                            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                            MessageBox.Show("Welcome " + textBoxUserName.Text + "!", "Login Successfull!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (System.Windows.Forms.Application.MessageLoop)
+                            {
+                                // WinForms app
+                                System.Windows.Forms.Application.Exit();
+                            }
+                            else
+                            {
+                                // Console app
+                                System.Environment.Exit(1);
+                            }
                         }
                         else
                         {
-                            // Console app
-                            System.Environment.Exit(1);
+                            MessageBox.Show("Please fill in the correct password", "Wrong Password!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            textBoxPassword.Clear();
+                            textBoxPassword.Focus();
                         }
-                    }
-                    else
+                    } else
                     {
-                        MessageBox.Show("Please fill in the correct password", "Wrong Password!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        textBoxPassword.Clear();
-                        textBoxPassword.Focus();
+                        MessageBox.Show("An expected error has occured. Please restart the application.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        button1_Click(sender, e);
                     }
 
                 }
