@@ -236,26 +236,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\theod\\.nuget\\packages\\": {}
+    "C:\\Users\\chmas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\theod\\Source\\Repos\\login-register\\login-register\\login-register.csproj",
+      "projectUniqueName": "C:\\Users\\chmas\\OneDrive\\Υπολογιστής\\Bookstore_Project\\login_new_versions\\login-register\\login-register.csproj",
       "projectName": "login-register",
-      "projectPath": "C:\\Users\\theod\\Source\\Repos\\login-register\\login-register\\login-register.csproj",
-      "packagesPath": "C:\\Users\\theod\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\theod\\Source\\Repos\\login-register\\login-register\\obj\\",
+      "projectPath": "C:\\Users\\chmas\\OneDrive\\Υπολογιστής\\Bookstore_Project\\login_new_versions\\login-register\\login-register.csproj",
+      "packagesPath": "C:\\Users\\chmas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chmas\\OneDrive\\Υπολογιστής\\Bookstore_Project\\login_new_versions\\login-register\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\theod\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\chmas\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0-windows"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

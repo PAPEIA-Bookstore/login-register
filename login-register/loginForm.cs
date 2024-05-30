@@ -82,7 +82,7 @@ namespace login_register
                         }
                     } else
                     {
-                        MessageBox.Show("An expected error has occured. Please restart the application.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Something went wrong :(", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                         button1_Click(sender, e);
                     }
 
@@ -91,6 +91,7 @@ namespace login_register
                 {
                     MessageBox.Show("Would you like to register?", "This username does not exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
                 DBHandler.CloseConnection(connection, command);
             }
         }

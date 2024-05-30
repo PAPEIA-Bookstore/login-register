@@ -43,6 +43,7 @@ namespace login_register
                                 string pass = textBoxPassword.Text;
                                 pass = pass + GLOBALS.pepper;
                                 string hashedPass = BCrypt.Net.BCrypt.EnhancedHashPassword(pass, 11);
+
                                 bool is_author = authorCheckBox.Checked;
                                 //  Giving the user a random pfp
                                 string prof_pic = GLOBALS.profImages[Random.Shared.Next(0, GLOBALS.profImages.Length)];
@@ -63,7 +64,6 @@ namespace login_register
                                 MessageBox.Show(GLOBALS.passGuidelines, "Please choose a stronger password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
-
                         }
                         else
                         {
@@ -81,6 +81,7 @@ namespace login_register
                         textBoxUserName.Focus();
                     }
 
+                    DBHandler.CloseConnection(connection, command);
                 } else {
                     MessageBox.Show(GLOBALS.usernameGuidelines, "Incorect Username", MessageBoxButtons.OK,MessageBoxIcon.Error);
                     textBoxUserName.Clear();

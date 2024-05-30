@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace login_register
 {
-    public static class GLOBALS
+    public static partial class GLOBALS
     {
         public static readonly string pepper = "sVgS12";
         public static readonly string usernameGuidelines = "A valid username should:\n- Start with a letter.\n - Use only uppercase or lowercase letters, numbers and underscores(_).\n- Be between 8-30 characters long.";
