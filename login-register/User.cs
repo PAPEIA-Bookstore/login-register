@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace login_register
 {
     public class User {
+        //  Public class User implements the Singleton Design Pattern
         private static User userInstance;
 
         private string username;
@@ -14,6 +15,7 @@ namespace login_register
         private string pfp;
         private bool is_author;
 
+        //  Constructor is private
         private User() { 
             username = string.Empty;
             fullName = string.Empty;
@@ -21,6 +23,7 @@ namespace login_register
             is_author = false;
         }
 
+        //  The (only) user will be generated only if there is no other instance
         public static User RequestUser
         {
             get {
@@ -37,9 +40,10 @@ namespace login_register
         public static string GetProfilePic() { return userInstance.pfp; }
         public static bool GetAuthor() { return userInstance.is_author; }
 
-        public static void SetUsername(string username) { userInstance.username = username; }
-        public static void SetFullName(string fullName) { userInstance.fullName = fullName; }
-        public static void SetProfilePic(string pfp) { userInstance.pfp = pfp; }
+        //  Members can be assigned values only once. The new values persist throughout the program's execution
+        public static void SetUsername(string username) { if (userInstance.username == string.Empty) userInstance.username = username; }
+        public static void SetFullName(string fullName) { if (userInstance.fullName == string.Empty) userInstance.fullName = fullName; }
+        public static void SetProfilePic(string pfp) { if (userInstance.pfp == string.Empty) userInstance.pfp = pfp; }
         public static void SetAuthor(bool is_author) { userInstance.is_author = is_author; }
     }
 }

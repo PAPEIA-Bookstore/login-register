@@ -14,15 +14,12 @@ namespace login_register
 {
     public partial class loginForm : Form
     {
-        private NpgsqlConnection DBopen_connection()
-        {
-            NpgsqlConnection conn = new NpgsqlConnection("Host=dpg-cp3nb4021fec73bb1ib0-a.frankfurt-postgres.render.com;Port=5432;Database=korribandb;Username=korr_user;Password=1N2F6ODSpntuDaspz4a4oDJ3A0vGMoMK;Trust Server Certificate=true;");
-            conn.Open();
-            return conn;
-        }
-        public loginForm()
+        private User User;
+        
+        public loginForm(User User)
         {
             InitializeComponent();
+            this.User = User;
         }
 
         private void loginForm_Load(object sender, EventArgs e)
@@ -50,29 +47,20 @@ namespace login_register
                     string pass = textBoxPassword.Text;
                     pass = pass + GLOBALS.pepper;
                     string dbPass = "";
-                    string prof_pic = "";
                     if (dataReader.Read())
                     {
                         dbPass = dataReader.GetString(2);
-                        prof_pic = dataReader.GetString(4);
 
                         bool isMatch = BCrypt.Net.BCrypt.EnhancedVerify(pass, dbPass);
                         if (isMatch)
                         {
-                            pictureBox1.Load(prof_pic);
-                            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
                             MessageBox.Show("Welcome " + textBoxUserName.Text + "!", "Login Successfull!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (System.Windows.Forms.Application.MessageLoop)
-                            {
-                                // WinForms app
-                                System.Windows.Forms.Application.Exit();
-                            }
-                            else
-                            {
-                                // Console app
-                                System.Environment.Exit(1);
-                            }
+
+                            User.SetUsername(textBoxUserName.Text);
+                            User.SetFullName(dataReader.GetString(1));
+                            User.SetProfilePic(dataReader.GetString(4));
+                            User.SetAuthor(dataReader.GetBoolean(3));
                         }
                         else
                         {
@@ -91,14 +79,15 @@ namespace login_register
                 {
                     MessageBox.Show("Would you like to register?", "This username does not exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
+                
+                dataReader.Close();
                 DBHandler.CloseConnection(connection, command);
             }
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            new FormRegister().Show();
+            new FormRegister(User).Show();
             this.Hide();
         }
 

@@ -39,8 +39,6 @@
             label2 = new Label();
             label1 = new Label();
             button1 = new Button();
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label6
@@ -50,7 +48,7 @@
             label6.ForeColor = Color.FromArgb(116, 86, 174);
             label6.Location = new Point(101, 428);
             label6.Name = "label6";
-            label6.Size = new Size(101, 17);
+            label6.Size = new Size(132, 23);
             label6.TabIndex = 23;
             label6.Text = "Create Account";
             label6.Click += label6_Click;
@@ -61,7 +59,7 @@
             label5.ForeColor = Color.Silver;
             label5.Location = new Point(72, 402);
             label5.Name = "label5";
-            label5.Size = new Size(149, 17);
+            label5.Size = new Size(192, 23);
             label5.TabIndex = 22;
             label5.Text = "Dont Have An Account";
             // 
@@ -101,7 +99,7 @@
             checkBoxShowPass.ForeColor = Color.FromArgb(224, 224, 224);
             checkBoxShowPass.Location = new Point(140, 252);
             checkBoxShowPass.Name = "checkBoxShowPass";
-            checkBoxShowPass.Size = new Size(119, 21);
+            checkBoxShowPass.Size = new Size(151, 27);
             checkBoxShowPass.TabIndex = 19;
             checkBoxShowPass.Text = "Show Password";
             checkBoxShowPass.UseVisualStyleBackColor = true;
@@ -125,7 +123,7 @@
             label3.ForeColor = Color.Silver;
             label3.Location = new Point(43, 198);
             label3.Name = "label3";
-            label3.Size = new Size(66, 17);
+            label3.Size = new Size(84, 23);
             label3.TabIndex = 15;
             label3.Text = "Password";
             // 
@@ -146,7 +144,7 @@
             label2.ForeColor = Color.Silver;
             label2.Location = new Point(43, 136);
             label2.Name = "label2";
-            label2.Size = new Size(69, 17);
+            label2.Size = new Size(89, 23);
             label2.TabIndex = 13;
             label2.Text = "Username";
             // 
@@ -157,7 +155,7 @@
             label1.ForeColor = Color.FromArgb(116, 86, 174);
             label1.Location = new Point(43, 81);
             label1.Name = "label1";
-            label1.Size = new Size(155, 27);
+            label1.Size = new Size(194, 34);
             label1.TabIndex = 12;
             label1.Text = "Get Started";
             label1.Click += label1_Click;
@@ -172,22 +170,12 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(209, 72);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(50, 50);
-            pictureBox1.TabIndex = 25;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
             // loginForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(303, 512);
-            Controls.Add(pictureBox1);
             Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -206,7 +194,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LOGIN";
             Load += loginForm_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -224,6 +211,5 @@
         private Label label2;
         private Label label1;
         private Button button1;
-        private PictureBox pictureBox1;
     }
 }

@@ -5,9 +5,11 @@ namespace login_register
 {
     public partial class FormRegister : Form
     {
-        public FormRegister()
+        private User User;
+        public FormRegister(User User)
         {
             InitializeComponent();
+            this.User = User;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,6 +60,12 @@ namespace login_register
 
                                 MessageBox.Show("Your account has been successfully created!", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 DBHandler.CloseConnection(connection, command);
+
+                                User.SetUsername(username);
+                                User.SetFullName(fullName);
+                                User.SetProfilePic(prof_pic);
+                                User.SetAuthor(is_author);
+                     
                             }
                             else
                             {
@@ -81,6 +89,7 @@ namespace login_register
                         textBoxUserName.Focus();
                     }
 
+                    dataReader.Close();
                     DBHandler.CloseConnection(connection, command);
                 } else {
                     MessageBox.Show(GLOBALS.usernameGuidelines, "Incorect Username", MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -114,7 +123,7 @@ namespace login_register
 
         private void label6_Click(object sender, EventArgs e)
         {
-            new loginForm().Show();
+            new loginForm(User).Show();
             this.Hide();
         }
 
