@@ -65,7 +65,9 @@ namespace login_register
                                 User.SetFullName(fullName);
                                 User.SetProfilePic(prof_pic);
                                 User.SetAuthor(is_author);
-                     
+
+                                new MyProfile(User).Show();
+                                this.Close();
                             }
                             else
                             {

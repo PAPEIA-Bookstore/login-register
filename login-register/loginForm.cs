@@ -61,6 +61,9 @@ namespace login_register
                             User.SetFullName(dataReader.GetString(1));
                             User.SetProfilePic(dataReader.GetString(4));
                             User.SetAuthor(dataReader.GetBoolean(3));
+
+                            new MyProfile(User).Show();
+                            this.Close();
                         }
                         else
                         {

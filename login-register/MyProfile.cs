@@ -18,12 +18,33 @@ namespace login_register
             InitializeComponent();
             this.User = User;
             pfpBox.Load(User.GetProfilePic());
-            pfpBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            fullNameLabel.Text = User.GetFullName();
+            usernameLabel.Text = "@" + User.GetUsername();
         }
 
         private void pfpBox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
