@@ -19,9 +19,11 @@ namespace login_register
             {
                 MessageBox.Show("Please complete all required fields!", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            } else {
+            }
+            else
+            {
                 //  Correct username form
-                if (Regex.IsMatch(textBoxUserName.Text,GLOBALS.usernameREGEX))
+                if (Regex.IsMatch(textBoxUserName.Text, GLOBALS.usernameREGEX))
                 {
                     NpgsqlConnection connection = DBHandler.OpenConnection();
                     NpgsqlCommand command = DBHandler.GetCommand(connection);
@@ -93,12 +95,14 @@ namespace login_register
 
                     dataReader.Close();
                     DBHandler.CloseConnection(connection, command);
-                } else {
-                    MessageBox.Show(GLOBALS.usernameGuidelines, "Incorect Username", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(GLOBALS.usernameGuidelines, "Incorect Username", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textBoxUserName.Clear();
                     textBoxUserName.Focus();
                 }
-                
+
             }
         }
         private void checkBoxShowPass_CheckedChanged(object sender, EventArgs e)
@@ -142,6 +146,16 @@ namespace login_register
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormRegister_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

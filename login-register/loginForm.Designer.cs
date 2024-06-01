@@ -45,10 +45,12 @@
             // 
             label6.AutoSize = true;
             label6.Cursor = Cursors.Hand;
-            label6.ForeColor = Color.FromArgb(116, 86, 174);
-            label6.Location = new Point(101, 428);
+            label6.Font = new Font("Candara", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Tan;
+            label6.Location = new Point(98, 444);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(132, 23);
+            label6.Size = new Size(134, 23);
             label6.TabIndex = 23;
             label6.Text = "Create Account";
             label6.Click += label6_Click;
@@ -56,36 +58,44 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.ForeColor = Color.Silver;
-            label5.Location = new Point(72, 402);
+            label5.Font = new Font("Candara", 12F);
+            label5.ForeColor = Color.DimGray;
+            label5.Location = new Point(87, 414);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(192, 23);
+            label5.Size = new Size(166, 19);
             label5.TabIndex = 22;
-            label5.Text = "Dont Have An Account";
+            label5.Text = "Don't Have An Account";
+            label5.Click += label5_Click;
             // 
             // buttonClearLOGIN
             // 
-            buttonClearLOGIN.BackColor = Color.White;
+            buttonClearLOGIN.BackColor = Color.PapayaWhip;
             buttonClearLOGIN.Cursor = Cursors.Hand;
             buttonClearLOGIN.FlatStyle = FlatStyle.Flat;
-            buttonClearLOGIN.ForeColor = Color.FromArgb(116, 86, 174);
-            buttonClearLOGIN.Location = new Point(43, 345);
+            buttonClearLOGIN.Font = new Font("Candara", 12F);
+            buttonClearLOGIN.ForeColor = Color.Tan;
+            buttonClearLOGIN.Location = new Point(49, 342);
+            buttonClearLOGIN.Margin = new Padding(2);
             buttonClearLOGIN.Name = "buttonClearLOGIN";
-            buttonClearLOGIN.Size = new Size(216, 35);
+            buttonClearLOGIN.Size = new Size(243, 39);
             buttonClearLOGIN.TabIndex = 21;
             buttonClearLOGIN.Text = "CLEAR";
             buttonClearLOGIN.UseVisualStyleBackColor = false;
+            buttonClearLOGIN.Click += buttonClearLOGIN_Click;
             // 
             // buttonLOGIN
             // 
-            buttonLOGIN.BackColor = Color.FromArgb(116, 86, 174);
+            buttonLOGIN.BackColor = Color.Tan;
             buttonLOGIN.Cursor = Cursors.Hand;
             buttonLOGIN.FlatAppearance.BorderSize = 0;
             buttonLOGIN.FlatStyle = FlatStyle.Flat;
-            buttonLOGIN.ForeColor = Color.White;
-            buttonLOGIN.Location = new Point(43, 293);
+            buttonLOGIN.Font = new Font("Candara", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLOGIN.ForeColor = Color.PapayaWhip;
+            buttonLOGIN.Location = new Point(49, 289);
+            buttonLOGIN.Margin = new Padding(2);
             buttonLOGIN.Name = "buttonLOGIN";
-            buttonLOGIN.Size = new Size(216, 35);
+            buttonLOGIN.Size = new Size(243, 39);
             buttonLOGIN.TabIndex = 20;
             buttonLOGIN.Text = "LOGIN";
             buttonLOGIN.UseVisualStyleBackColor = false;
@@ -96,10 +106,12 @@
             checkBoxShowPass.AutoSize = true;
             checkBoxShowPass.Cursor = Cursors.Hand;
             checkBoxShowPass.FlatStyle = FlatStyle.Flat;
-            checkBoxShowPass.ForeColor = Color.FromArgb(224, 224, 224);
-            checkBoxShowPass.Location = new Point(140, 252);
+            checkBoxShowPass.Font = new Font("Candara", 12F);
+            checkBoxShowPass.ForeColor = Color.Tan;
+            checkBoxShowPass.Location = new Point(152, 239);
+            checkBoxShowPass.Margin = new Padding(2);
             checkBoxShowPass.Name = "checkBoxShowPass";
-            checkBoxShowPass.Size = new Size(151, 27);
+            checkBoxShowPass.Size = new Size(133, 23);
             checkBoxShowPass.TabIndex = 19;
             checkBoxShowPass.Text = "Show Password";
             checkBoxShowPass.UseVisualStyleBackColor = true;
@@ -107,64 +119,75 @@
             // 
             // textBoxPassword
             // 
-            textBoxPassword.BackColor = Color.FromArgb(230, 231, 233);
-            textBoxPassword.BorderStyle = BorderStyle.None;
-            textBoxPassword.Font = new Font("Microsoft New Tai Lue", 14.25F);
-            textBoxPassword.Location = new Point(43, 218);
+            textBoxPassword.BackColor = Color.PapayaWhip;
+            textBoxPassword.BorderStyle = BorderStyle.FixedSingle;
+            textBoxPassword.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxPassword.Location = new Point(49, 207);
+            textBoxPassword.Margin = new Padding(2);
             textBoxPassword.Multiline = true;
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
-            textBoxPassword.Size = new Size(216, 28);
+            textBoxPassword.Size = new Size(236, 28);
             textBoxPassword.TabIndex = 16;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.ForeColor = Color.Silver;
-            label3.Location = new Point(43, 198);
+            label3.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Tan;
+            label3.Location = new Point(46, 186);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(84, 23);
+            label3.Size = new Size(77, 19);
             label3.TabIndex = 15;
             label3.Text = "Password";
             // 
             // textBoxUserName
             // 
-            textBoxUserName.BackColor = Color.FromArgb(230, 231, 233);
-            textBoxUserName.BorderStyle = BorderStyle.None;
-            textBoxUserName.Font = new Font("Microsoft New Tai Lue", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxUserName.Location = new Point(43, 156);
+            textBoxUserName.BackColor = Color.PapayaWhip;
+            textBoxUserName.BorderStyle = BorderStyle.FixedSingle;
+            textBoxUserName.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxUserName.Location = new Point(49, 137);
+            textBoxUserName.Margin = new Padding(2);
             textBoxUserName.Multiline = true;
             textBoxUserName.Name = "textBoxUserName";
-            textBoxUserName.Size = new Size(216, 28);
+            textBoxUserName.Size = new Size(236, 29);
             textBoxUserName.TabIndex = 14;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.ForeColor = Color.Silver;
-            label2.Location = new Point(43, 136);
+            label2.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Tan;
+            label2.Location = new Point(46, 116);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(89, 23);
+            label2.Size = new Size(79, 19);
             label2.TabIndex = 13;
             label2.Text = "Username";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("MS UI Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(116, 86, 174);
-            label1.Location = new Point(43, 81);
+            label1.Font = new Font("Candara", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Tan;
+            label1.Location = new Point(46, 51);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(194, 34);
+            label1.Size = new Size(125, 33);
             label1.TabIndex = 12;
-            label1.Text = "Get Started";
+            label1.Text = "Bookland";
             label1.Click += label1_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(255, 12);
+            button1.FlatAppearance.BorderColor = Color.Tan;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Candara", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(290, 11);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(36, 31);
+            button1.Size = new Size(40, 40);
             button1.TabIndex = 24;
             button1.Text = "X";
             button1.UseVisualStyleBackColor = true;
@@ -172,10 +195,10 @@
             // 
             // loginForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 21F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(303, 512);
+            BackColor = Color.PapayaWhip;
+            ClientSize = new Size(341, 500);
             Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -187,9 +210,10 @@
             Controls.Add(textBoxUserName);
             Controls.Add(label2);
             Controls.Add(label1);
-            Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold);
-            ForeColor = Color.Silver;
+            Font = new Font("Candara", 8.25F);
+            ForeColor = Color.Tan;
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
             Name = "loginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LOGIN";

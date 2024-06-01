@@ -29,36 +29,26 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
-            fullNameLabel = new Label();
             usernameLabel = new Label();
-            button1 = new Button();
             pfpBox = new PictureBox();
+            exitButton = new Button();
+            pictureBox2 = new PictureBox();
+            textBox1 = new TextBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pfpBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Tan;
-            pictureBox1.Location = new Point(-8, 117);
+            pictureBox1.Location = new Point(-2, -2);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(700, 225);
+            pictureBox1.Size = new Size(690, 45);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
-            // 
-            // fullNameLabel
-            // 
-            fullNameLabel.AutoSize = true;
-            fullNameLabel.BackColor = Color.Tan;
-            fullNameLabel.Font = new Font("Candara", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            fullNameLabel.ForeColor = Color.PapayaWhip;
-            fullNameLabel.Location = new Point(159, 117);
-            fullNameLabel.Name = "fullNameLabel";
-            fullNameLabel.Size = new Size(92, 39);
-            fullNameLabel.TabIndex = 2;
-            fullNameLabel.Text = "label1";
-            fullNameLabel.Click += label1_Click;
             // 
             // usernameLabel
             // 
@@ -66,32 +56,77 @@
             usernameLabel.BackColor = Color.Tan;
             usernameLabel.Font = new Font("Candara", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             usernameLabel.ForeColor = Color.PapayaWhip;
-            usernameLabel.Location = new Point(159, 156);
+            usernameLabel.Location = new Point(130, 9);
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new Size(65, 26);
             usernameLabel.TabIndex = 3;
             usernameLabel.Text = "label2";
             usernameLabel.Click += label2_Click;
             // 
-            // button1
-            // 
-            button1.Location = new Point(636, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(36, 31);
-            button1.TabIndex = 25;
-            button1.Text = "X";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // pfpBox
             // 
             pfpBox.BackColor = Color.Tan;
-            pfpBox.Location = new Point(33, 62);
+            pfpBox.Location = new Point(84, 2);
             pfpBox.Name = "pfpBox";
-            pfpBox.Size = new Size(120, 120);
+            pfpBox.Size = new Size(40, 40);
             pfpBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pfpBox.TabIndex = 26;
             pfpBox.TabStop = false;
+            // 
+            // exitButton
+            // 
+            exitButton.BackColor = Color.Tan;
+            exitButton.FlatAppearance.BorderSize = 0;
+            exitButton.FlatStyle = FlatStyle.Flat;
+            exitButton.Font = new Font("Candara", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            exitButton.ForeColor = Color.PapayaWhip;
+            exitButton.Location = new Point(642, 2);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(35, 35);
+            exitButton.TabIndex = 27;
+            exitButton.Text = "X";
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += button1_Click_1;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Tan;
+            pictureBox2.BackgroundImage = Properties.Resources.book_41626;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.InitialImage = null;
+            pictureBox2.Location = new Point(12, 3);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(54, 40);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 28;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.Tan;
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = Color.PapayaWhip;
+            textBox1.Location = new Point(362, 9);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(161, 31);
+            textBox1.TabIndex = 29;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Tan;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Candara", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.PapayaWhip;
+            button1.Location = new Point(529, -2);
+            button1.Name = "button1";
+            button1.Size = new Size(35, 45);
+            button1.TabIndex = 30;
+            button1.Text = "⌕";
+            button1.UseVisualStyleBackColor = false;
             // 
             // MyProfile
             // 
@@ -99,10 +134,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PapayaWhip;
             ClientSize = new Size(684, 340);
-            Controls.Add(pfpBox);
             Controls.Add(button1);
+            Controls.Add(textBox1);
+            Controls.Add(pictureBox2);
+            Controls.Add(exitButton);
+            Controls.Add(pfpBox);
             Controls.Add(usernameLabel);
-            Controls.Add(fullNameLabel);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
@@ -111,16 +148,19 @@
             Text = "MyProfile";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pfpBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private PictureBox pictureBox1;
-        private Label fullNameLabel;
         private Label usernameLabel;
         private Label label3;
-        private Button button1;
         private PictureBox pfpBox;
+        private Button exitButton;
+        private PictureBox pictureBox2;
+        private TextBox textBox1;
+        private Button button1;
     }
 }

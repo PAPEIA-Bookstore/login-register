@@ -15,7 +15,7 @@ namespace login_register
     public partial class loginForm : Form
     {
         private User User;
-        
+
         public loginForm(User User)
         {
             InitializeComponent();
@@ -71,9 +71,10 @@ namespace login_register
                             textBoxPassword.Clear();
                             textBoxPassword.Focus();
                         }
-                    } else
+                    }
+                    else
                     {
-                        MessageBox.Show("Something went wrong :(", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Something went wrong :(", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         button1_Click(sender, e);
                     }
 
@@ -82,7 +83,7 @@ namespace login_register
                 {
                     MessageBox.Show("Would you like to register?", "This username does not exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
                 dataReader.Close();
                 DBHandler.CloseConnection(connection, command);
             }
@@ -120,6 +121,16 @@ namespace login_register
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonClearLOGIN_Click(object sender, EventArgs e)
         {
 
         }
