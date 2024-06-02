@@ -121,4 +121,16 @@
   <data name="book-41626" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\book-41626.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\star_1828970.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\star_1828884.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star_outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\star_1828614.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

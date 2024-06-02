@@ -69,5 +69,46 @@ namespace login_register.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap contemporary_fiction_night_time_book_cover_design_template_1be47835c3058eb42211574e0c4ed8bf_screen {
+            get {
+                object obj = ResourceManager.GetObject("contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb4221157" +
+                        "4e0c4ed8bf_screen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star_empty {
+            get {
+                object obj = ResourceManager.GetObject("star_empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star_filled {
+            get {
+                object obj = ResourceManager.GetObject("star_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star_outline {
+            get {
+                object obj = ResourceManager.GetObject("star_outline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
