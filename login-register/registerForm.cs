@@ -68,7 +68,7 @@ namespace login_register
                                 User.SetProfilePic(prof_pic);
                                 User.SetAuthor(is_author);
 
-                                new MyProfile(User).Show();
+                                new ContainerForm(User).Show();
                                 this.Close();
                             }
                             else

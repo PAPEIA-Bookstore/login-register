@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\theod\\source\\repos\\login-register\\login-register\\login-register.csproj": {}
+    "C:\\Users\\chmas\\OneDrive\\Υπολογιστής\\Bookstore_Project\\maria-login-register-update\\login-register\\login-register.csproj": {}
   },
   "projects": {
-    "C:\\Users\\theod\\source\\repos\\login-register\\login-register\\login-register.csproj": {
+    "C:\\Users\\chmas\\OneDrive\\Υπολογιστής\\Bookstore_Project\\maria-login-register-update\\login-register\\login-register.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\theod\\source\\repos\\login-register\\login-register\\login-register.csproj",
+        "projectUniqueName": "C:\\Users\\chmas\\OneDrive\\Υπολογιστής\\Bookstore_Project\\maria-login-register-update\\login-register\\login-register.csproj",
         "projectName": "login-register",
-        "projectPath": "C:\\Users\\theod\\source\\repos\\login-register\\login-register\\login-register.csproj",
-        "packagesPath": "C:\\Users\\theod\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\theod\\source\\repos\\login-register\\login-register\\obj\\",
+        "projectPath": "C:\\Users\\chmas\\OneDrive\\Υπολογιστής\\Bookstore_Project\\maria-login-register-update\\login-register\\login-register.csproj",
+        "packagesPath": "C:\\Users\\chmas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chmas\\OneDrive\\Υπολογιστής\\Bookstore_Project\\maria-login-register-update\\login-register\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\theod\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\chmas\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

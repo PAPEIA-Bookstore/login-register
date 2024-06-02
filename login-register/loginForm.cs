@@ -62,7 +62,7 @@ namespace login_register
                             User.SetProfilePic(dataReader.GetString(4));
                             User.SetAuthor(dataReader.GetBoolean(3));
 
-                            new MyProfile(User).Show();
+                            new ContainerForm(User).Show();
                             this.Close();
                         }
                         else

@@ -117,23 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="book-41626" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book-41626.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="text-1717247010360" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\text-1717247010360.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_ABH0078--621x414" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\_ABH0078--621x414.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="corner-storefront23" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\corner-storefront23.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="brown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\brown.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="71wM-BB9mtL._AC_UF1000,1000_QL80_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\71wM-BB9mtL._AC_UF1000,1000_QL80_.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

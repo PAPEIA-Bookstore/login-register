@@ -63,9 +63,59 @@ namespace login_register.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _71wM_BB9mtL__AC_UF1000_1000_QL80_ {
+            get {
+                object obj = ResourceManager.GetObject("71wM-BB9mtL._AC_UF1000,1000_QL80_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _ABH0078__621x414 {
+            get {
+                object obj = ResourceManager.GetObject("_ABH0078--621x414", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap book_41626 {
             get {
                 object obj = ResourceManager.GetObject("book-41626", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brown {
+            get {
+                object obj = ResourceManager.GetObject("brown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap corner_storefront23 {
+            get {
+                object obj = ResourceManager.GetObject("corner-storefront23", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap text_1717247010360 {
+            get {
+                object obj = ResourceManager.GetObject("text-1717247010360", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
